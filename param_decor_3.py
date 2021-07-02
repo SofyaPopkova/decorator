@@ -1,5 +1,5 @@
 import datetime
-from pip._vendor import requests
+import requests
 
 FINAL_FILE = r'C:\Project\decorate\final.txt'
 
@@ -13,7 +13,7 @@ def path_log(path):
             counter += 1
             cache_time = datetime.datetime.now()
             result = function(*args, **kwargs)
-            with open(FINAL_FILE, 'a', encoding='utf-8') as f:
+            with open(path, 'a', encoding='utf-8') as f:
                 f.write(f'Вызов № {counter}, Дата: {cache_time.date()}, '
                         f'Время: {cache_time.time()}, Название: {function.__name__}, Аргументы: {args}, '
                         f'Возвращаемое значение: {result}, Путь к файлу: {path}\n')
